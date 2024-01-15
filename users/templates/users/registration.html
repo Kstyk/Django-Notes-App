@@ -3,7 +3,7 @@
     Registration
 {% endblock title %}
 {% block content %}
-    <div class="flex flex-col w-full sm:w-10/12 lg:w-8/12 border-x-[1px] px-5 border-gray-300 min-h-screen">
+    <div class="flex flex-col w-full md:w-11/12 lg:w-10/12 2xl:w-7/12 border-x-[1px] pt-5 border-gray-300 pb-5 px-5">
         <h2 class="text-center text-5xl my-5 text-gray-500 uppercase">Register</h2>
         <hr>
         <form action="{% url 'registration' %}"
@@ -11,19 +11,23 @@
               class="flex flex-col gap-y-3 mt-5">
             {% csrf_token %}
             {% for field in form %}
-                <div>
-                    <div class="flex flex-row justify-between w-full gap-x-2 mb-0">
-                        <span class="text-gray-500 flex items-center">{{ field.label_tag }}</span>
-                        {{ field }}
+                <label class="form-control w-full">
+                    <div class="label">
+                        <span class="label-text">{{ field.label_tag }}</span>
                     </div>
-                    {% if field.errors %}
-                        <ul class="text-red-500 text-sm text-right">
-                            {% for error in field.errors %}<li>{{ error }}</li>{% endfor %}
-                        </ul>
-                    {% endif %}
-                </div>
+                    {{ field }}
+                    <div class="label">
+                        <span class="label-text-alt">
+                            {% if field.errors %}
+                                <ul class="text-red-500 text-sm text-right">
+                                    {% for error in field.errors %}<li>{{ error }}</li>{% endfor %}
+                                </ul>
+                            {% endif %}
+                        </span>
+                    </div>
+                </label>
             {% endfor %}
-            <button class="btn btn-outline rounded-none btn-secondary w-4/12" type="submit">Register</button>
+            <button class="btn btn-outline rounded-none min-h-5 h-12 w-full" type="submit">Register</button>
         </form>
     </div>
 {% endblock content %}
