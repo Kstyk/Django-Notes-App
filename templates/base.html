@@ -1,17 +1,24 @@
-{% load static tailwind_tags %}
+{% comment %} {% load static tailwind_tags %} {% endcomment %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% tailwind_css %}
+<html lang="en" data-theme="fantasy">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="notes app">
+        <meta name="keywords" content="notes,app,django">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" type="text/css" />
 
-    <title> {% block title %}{% endblock title %} </title>
-</head>
-<body>
-    {% include "navbar.html" %}
-    <div class="px-10">
-    {% block content %}{% endblock content %}
-    </div>
-</body>
+        <title>
+            {% block title %}
+            {% endblock title %}
+        </title>
+    </head>
+    <body>
+        {% include "navbar.html" %}
+        <div class="w-11/12 sm:w-9/12 md:w-6/12 mx-auto flex justify-center items-center flex-col">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </body>
 </html>

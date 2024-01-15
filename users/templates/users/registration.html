@@ -1,10 +1,29 @@
 {% extends "base.html" %}
-{% block title %} Registration {% endblock title %}
+{% block title %}
+    Registration
+{% endblock title %}
 {% block content %}
-<h2>Register</h2>
-<form action="{% url 'registration' %}" method="post">
-    {% csrf_token  %}
-    {{ form.as_p }}
-    <button type="submit">Register</button>
-</form>
+    <div class="flex flex-col w-full sm:w-10/12 lg:w-8/12 border-x-[1px] px-5 border-gray-300 min-h-screen">
+        <h2 class="text-center text-5xl my-5 text-gray-500 uppercase">Register</h2>
+        <hr>
+        <form action="{% url 'registration' %}"
+              method="post"
+              class="flex flex-col gap-y-3 mt-5">
+            {% csrf_token %}
+            {% for field in form %}
+                <div>
+                    <div class="flex flex-row justify-between w-full gap-x-2 mb-0">
+                        <span class="text-gray-500 flex items-center">{{ field.label_tag }}</span>
+                        {{ field }}
+                    </div>
+                    {% if field.errors %}
+                        <ul class="text-red-500 text-sm text-right">
+                            {% for error in field.errors %}<li>{{ error }}</li>{% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <button class="btn btn-outline rounded-none btn-secondary w-4/12" type="submit">Register</button>
+        </form>
+    </div>
 {% endblock content %}
