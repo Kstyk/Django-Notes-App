@@ -19,7 +19,7 @@
                     <div class="label">
                         <span class="label-text-alt">
                             {% if field.errors %}
-                                <ul class="text-red-500 text-sm text-right">
+                                <ul class="text-red-500 text-sm text-left">
                                     {% for error in field.errors %}<li>{{ error }}</li>{% endfor %}
                                 </ul>
                             {% endif %}
@@ -27,7 +27,8 @@
                     </div>
                 </label>
             {% endfor %}
-            <button class="btn btn-outline rounded-none min-h-5 h-12 w-full" type="submit">Register</button>
+            <button class="btn btn-outline rounded-none min-h-5 h-12 w-full"
+                    type="submit">Register</button>
         </form>
     </div>
 {% endblock content %}
