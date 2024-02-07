@@ -1,21 +1,21 @@
 <div class="navbar border-b-[1px] border-gray-300 flex-shrink-0 bg-gray-100">
-    <div class="flex-1">
-        <a class="btn btn-ghost text-xl">daisyUI</a>
-    </div>
-    <div class="flex-none">
-        <ul class="menu menu-horizontal px-1">
-            {% if user.is_authenticated %}
-                <li>
-                    <a href="{% url 'logout' %}">Logout</a>
-                </li>
-            {% else %}
-                <li>
-                    <a href="{% url 'registration' %}">Register</a>
-                </li>
-                <li>
-                    <a href="{% url 'login' %}">Login</a>
-                </li>
-            {% endif %}
-        </ul>
-    </div>
+  <div class="flex-1">
+    <a class="btn btn-ghost text-xl">Twoje notatki</a>
+  </div>
+  <div class="flex-none">
+    <ul class="menu menu-horizontal px-1">
+      {% if user.is_authenticated %}
+      <li>
+        <a href="{% url 'logout' %}">Logout</a>
+      </li>
+      {% else %}
+      <li>
+        <a href="{% url 'registration' %}">Register</a>
+      </li>
+      <li>
+        <a href="{% url 'login' %}">Login</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
 </div>
