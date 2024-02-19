@@ -1,7 +1,12 @@
-{% extends "base.html" %}
-{% block title %}
-    Strona główna
-{% endblock title %}
+{% extends "base.html" %} {% block title %} Strona główna {% endblock title %}
 {% block content %}
-    asd
+<div
+  class="flex flex-col w-full md:w-11/12 lg:w-10/12 2xl:w-7/12 border-x-[1px] pt-5 border-gray-300 pb-5 px-5"
+>
+  <a href="{% url 'create_note' %}">
+    <button>Create Note</button>
+  </a>
+  <hr />
+</div>
+
 {% endblock content %}
